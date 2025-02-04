@@ -1,0 +1,72 @@
+// ---------------------------------------------
+// Testar todos os servico da api para eleitor
+// ---------------------------------------------
+
+// Inserir eleitor
+POST http://127.0.0.1:5000/eleitor
+Content-Type: application/json
+// OBS: É necessário pular uma linha, quando existir um corpo (body)
+
+{
+    "cpf": "02732391204",
+    "nome": "ELINEIDE MENEZES DE NAZARE",
+    "data_nascimento": "09/08/1998",
+    "nome_mae": "ELINEIDE LOPES MENEZES",
+    "cep": "69058230",
+    "nro_endereco": "345",
+    "nro_titulo": "123456789",
+    "situacao": "REGULAR",
+    "secao": "0186",
+    "zona": "009",
+    "local_votacao": "C. E. GOVERNADOR GILBERTO MESTRINHO",
+    "endereco_votacao":"ESTRADA DO AEROPORTO SN",
+    "bairro": "SAO FRANCISCO",
+    "municipio_uf": "TEFE/AM",
+    "pais": "BRASIL"
+}
+// Utiliza-se obrigatoriamente no início da linha os simbolos: ###
+// para separar uma requisção da outra.
+###
+
+// Alterar eleitor pelo cpf
+PUT http://127.0.0.1:5000/eleitor
+Content-Type: application/json
+// OBS: É necessário pular uma linha, quando existir um corpo (body)
+
+{
+    "cpf": "01416891293",
+    "nome": "TIAGO LOPES SILVA E SILVA",
+    "data_nascimento": "21/10/2005",
+    "nome_mae": "MARIA ALBERTA LOPES DA SILVA",
+    "cep": "69058230",
+    "nro_endereco": "344",
+    "nro_titulo": "987654321",
+    "situacao": "REGULAR",
+    "secao": "0186",
+    "zona": "009",
+    "local_votacao": "CMEI OLAVO BILAC",
+    "endereco_votacao":"ARGENTINA",
+    "bairro": "FLORES",
+    "municipio_uf": "MANAUS/AM",
+    "pais": "BRASIL"
+}
+// Utiliza-se obrigatoriamente no início da linha os simbolos: ###
+// para separar uma requisção da outra.
+###
+
+// Listar todos os eleitores em ordem alfabética do nome
+GET http://127.0.0.1:5000/eleitor
+Content-Type: application/json
+###
+
+// Obter eleitor pelo cpf
+//GET http://127.0.0.1:5000/eleitor/cpf
+GET http://127.0.0.1:5000/eleitor/02732391204
+Content-Type: application/json
+###
+
+// Deletar ELEITOR pelo cpf
+// http://127.0.0.1:5000/eleitor/cpf
+DELETE http://127.0.0.1:5000/eleitor/02732391204
+Content-Type: application/json
+###
